@@ -18,4 +18,4 @@ configure aws cli credentials
 - https://nx.dev/recipes/webpack/webpack-config-setup
 
 // steps used for initial setup:
-`npx create-nx-workspace nd-server --preset=nest --bundler=webpack`
+`npx create-nx-workspace demoapp --preset=nest --bundler=webpack`
