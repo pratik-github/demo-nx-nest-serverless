@@ -1,0 +1,54 @@
+{
+  "name": "graphql",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/graphql/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "graphql:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "graphql:build:development"
+        },
+        "production": {
+          "buildTarget": "graphql:build:production"
+        }
+      }
+    },
+    "package": {
+      "executor": "nx:run-commands",
+      "dependsOn": [],
+      "options": {
+        "command": "npx sls package",
+        "cwd": "apps/graphql"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["package"],
+      "options": {
+        "command": "npx sls deploy --verbose",
+        "cwd": "apps/graphql"
+      }
+    },
+    "undeploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx sls remove --verbose",
+        "cwd": "apps/graphql"
+      }
+    },
+    "offline": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx sls offline --verbose",
+        "cwd": "apps/graphql"
+      }
+    }
+  }
+}
