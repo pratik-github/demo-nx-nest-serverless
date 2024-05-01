@@ -1,9 +1,12 @@
-const { NxWebpackPlugin } = require('@nx/webpack');
-const { join } = require('path');
+const { NxWebpackPlugin } = require("@nx/webpack");
+const slsw = require('serverless-webpack');
+const { join } = require("path");
 
 module.exports = {
+  entry: slsw.lib.entries,
   output: {
-    path: join(__dirname, './dist/src'),
+    path: join(__dirname, "./dist"),
+    libraryTarget: "commonjs2",
   },
   plugins: [
     new NxWebpackPlugin({
