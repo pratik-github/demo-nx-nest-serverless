@@ -6,7 +6,7 @@ module.exports = {
   entry: slsw.lib.entries,
   output: {
     path: join(__dirname, "./dist"),
-    libraryTarget: "commonjs2",
+    libraryTarget: "commonjs",
   },
   plugins: [
     new NxWebpackPlugin({
