@@ -1,11 +1,12 @@
 const { NxWebpackPlugin } = require('@nx/webpack');
 const slsw = require('serverless-webpack');
 const { join } = require('path');
+
 let isServe = false;
+
 if (Object.keys(slsw.lib.entries).length === 0) {
   isServe = true;
 }
-console.log(Object.keys(slsw.lib.entries).length, isServe);
 
 module.exports = {
   entry: slsw.lib.entries,
