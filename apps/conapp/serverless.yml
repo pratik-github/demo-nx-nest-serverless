@@ -6,10 +6,10 @@ plugins:
 
 custom:
   webpack:
-    webpackConfig: "webpack.config.js"
+    webpackConfig: 'webpack.config.js'
     keepOutputDirectory: true
     includeModules:
-      packagePath: "../../package.json"
+      packagePath: '../../package.json'
 
 provider:
   name: aws
@@ -25,4 +25,4 @@ functions:
           path: /
       - http:
           method: ANY
-          path: "{proxy+}"
+          path: '{proxy+}'
