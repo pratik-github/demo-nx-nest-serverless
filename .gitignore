@@ -42,3 +42,5 @@ Thumbs.db
 
 apps/**/dist
 apps/**/.serverless
+apps/**/.webpack
+

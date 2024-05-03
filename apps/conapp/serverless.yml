@@ -1,0 +1,28 @@
+service: conapp
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    keepOutputDirectory: true
+    includeModules:
+      packagePath: '../../package.json'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  # profile: pratik-aws-account
+
+functions:
+  main:
+    handler: src/lambda.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
